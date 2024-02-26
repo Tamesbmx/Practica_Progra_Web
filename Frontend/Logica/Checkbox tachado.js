@@ -12,6 +12,7 @@ function toggleTextDecoration(checkbox, label) {
 const taskForm = document.getElementById('taskForm');
 
 function Update_list() {
+    taskForm.innerHTML = '';
     // Iterar sobre el array de tareas y crear los checkboxes
     for (let i = 0; i < tasks.length; i++) {
         const task = tasks[i];
@@ -44,12 +45,15 @@ function Update_list() {
 
 
 function Add_task() {
-   let new_task = document.getElementById('new_task').value; 
+   let new_task = document.getElementById('new_task').value;
 
    if (new_task == '') {
     alert('No espacio en blanco')
    } else {
     tasks.push(new_task);  
     Update_list();
+    document.getElementById('new_task').value = '';
    }
 }
+
+Update_list();
